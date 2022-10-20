@@ -36,3 +36,57 @@
     transform: rotate(360deg);
   }
 }
+
+.body{
+  background-image:url(../src/Assets/the-beautiful-shining-stars-in-the-night-sky.jpg);
+  background-position-y: 20%;
+  background-repeat: no-repeat;
+  display: flex;
+  position: relative;
+  transition: 0.5s;
+  width: 100vw;
+  height: 100vh;
+  transition: 2s;
+}
+
+section{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+}
+
+.add_tanzaku{
+  background-color: rgb(246, 19, 19);
+  font-weight: bold;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 30px;
+  padding: 1em;
+  height: 100px;
+  position: relative;
+  border-radius: 15px;
+}
+
+.tanzaku{
+  background-color: white;
+  width: 550px;
+  height: 150px;
+  position: relative;
+  text-align: center;
+  opacity: 0.9;
+}
+
+.botoes{
+  margin-top: 90px;
+  margin: 100px;
+}
+
+.bambu{
+  height: 110%;
+  transition: 2s;
+}
+
+.bambu img{
+  height: 100%;
+}
