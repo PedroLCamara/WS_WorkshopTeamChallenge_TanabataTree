@@ -85,8 +85,35 @@ section{
 .bambu{
   height: 110%;
   transition: 2s;
+  position: relative;
 }
 
 .bambu img{
   height: 100%;
+}
+
+.sm-tzk{
+  position: absolute;
+  transform: scale(0.2);
+  animation: rotate-tzk 2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tzk-txt{
+  color: white;
+  position: absolute;
+  transform: rotate(90deg);
+  font-size: 32px;
+  padding-top: 2em;
+}
+
+@keyframes rotate-tzk {
+  from{
+    transform: scale(1) rotate(90deg)
+  }
+  to{
+    transform: scale(0.2) rotate(0deg)
+  }
 }
