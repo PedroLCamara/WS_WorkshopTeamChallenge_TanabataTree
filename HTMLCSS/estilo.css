@@ -1,5 +1,5 @@
 body{
-    background-image:url(./MIDIAS/noite.jpg);
+    background-image:url(../MIDIAS/the-beautiful-shining-stars-in-the-night-sky.jpg);
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
@@ -8,13 +8,28 @@ body{
 }
 
 .add_tanzaku{
-    background-color: red;
+    background-color: rgb(246, 19, 19);
     font-weight: bold;
     font-family:'Courier New', Courier, monospace;
     font-size: 30px;
-    padding: 0.9em;
+    padding: 1em;
+    width: 160px;
     position: relative;
     left: 1650px;
     top: 30px;
     border-radius: 15px;
+}
+
+.tanzaku{
+    background-color: white;
+    width: 550px;
+    height: 150px;
+    position: relative;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.botoes{
+    margin-top: 90px;
+    margin: 100px;
 }
