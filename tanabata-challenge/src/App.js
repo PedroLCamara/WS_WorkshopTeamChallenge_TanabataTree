@@ -5,6 +5,9 @@ import bambuImg from '../src/Assets/bambu.png';
 import blue from "../src/Assets/Azul_sem_escrita.png";
 import orange from "../src/Assets/Laranja_sem_escrita.png";
 import green from "../src/Assets/Verde_sem_escrita.png";
+import blueTxt from "../src/Assets/Azul_COM_escrita.png";
+import orangeTxt from "../src/Assets/Laranja_COM_escrita.png";
+import greenTxt from "../src/Assets/Verde_COM_escrita.png";
 
 function App() {
   const [tanzakuList, setTanzakuList] = useState([]);
@@ -17,7 +20,7 @@ function App() {
     var color;
     var colorNum = Math.random() * 15;
     var topNum = Math.random() * 500;
-    var leftNum = Math.random() * 500;
+    var leftNum = Math.random() * 275;
     console.log(colorNum);
     console.log(topNum);
     console.log(leftNum);
@@ -25,15 +28,28 @@ function App() {
 
     const tree = document.getElementById("tree");
     const bg = document.getElementById("bg");
-
+    const tzkModal = document.getElementById("tzk-modal");
+    
+    tzkModal.style.opacity = "0";
     tree.style.transform = "translateY(10%)";
     bg.style.backgroundPositionY = "10%";
-    if (colorNum <= 5) {
-      color = blue;
-    } else if (colorNum <= 10) {
-      color = orange;
-    } else {
-      color = green;
+    if (text == "") {
+      if (colorNum <= 5) {
+        color = blueTxt;
+      } else if (colorNum <= 10) {
+        color = orangeTxt;
+      } else {
+        color = greenTxt;
+      }
+    }
+    else {
+      if (colorNum <= 5) {
+        color = blue;
+      } else if (colorNum <= 10) {
+        color = orange;
+      } else {
+        color = green;
+      }
     }
 
     newTanzaku = {
@@ -53,10 +69,32 @@ function App() {
     }, 2000)
   }
 
+  const showTzkModal = (e) => {
+    e.preventDefault();
+    const tzkModal = document.getElementById("tzk-modal");
+    tzkModal.style.opacity = "1";
+
+    const tree = document.getElementById("tree");
+    const bg = document.getElementById("bg");
+    tree.style.transform = "translateY(10%)";
+    bg.style.backgroundPositionY = "10%";
+  }
+
+  const hideTzkModal = (e) => {
+    e.preventDefault();
+    const tzkModal = document.getElementById("tzk-modal");
+    tzkModal.style.opacity = "0";
+
+    const tree = document.getElementById("tree");
+    const bg = document.getElementById("bg");
+    tree.style.transform = "translateY(0%)";
+    bg.style.backgroundPositionY = "20%";
+  } 
+
   return (
     <div className='body' id='bg'>
       <section>
-        <button className="add_tanzaku" onClick={(e) => addTanzaku(e)}>
+        <button className="add_tanzaku" onClick={(e) => showTzkModal(e)}>
           Adicionar
         </button>
         <div className="bambu" id='tree'>
@@ -74,10 +112,11 @@ function App() {
           </div>
           <img src={bambuImg}></img>
         </div>
-        <div className="tanzaku">
+        <div className="tanzaku" id='tzk-modal'>
           <input type="text" name="Tanzaku" id="Tanzaku" value={text} onChange={(e) => setText(e.target.value)} />
           <div className="botoes">
-            <input type="button" value="Cancelar" id="cancelar" />
+            <button id="cancelar" onClick={(e) => hideTzkModal(e)}> Cancelar </button>
+            <button id="enviar" onClick={(e) => addTanzaku(e)}> Enviar </button>
           </div>
         </div>
       </section>
